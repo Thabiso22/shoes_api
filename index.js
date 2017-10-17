@@ -22,13 +22,13 @@ app.set('view engine', 'handlebars');
 
 //List all shoes in stock
 app.get("/api/shoes", function(req, res) {
-  model.find({},function (err,results) {
-    if (err) {
-      console.log(err);
-    }else {
-      res.json(results);
-    }
-  })
+    model.find({}, function(err, results) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(results);
+        }
+    })
 
 
 });
@@ -36,63 +36,79 @@ app.get("/api/shoes", function(req, res) {
 
 //List all shoes for a given brand
 app.get("/api/shoes/brand/:brandname", function(req, res) {
-var brandInp = req.params.brandname;
-model.find({brand:brandInp},function (err,results) {
-  if (err) {
-    console.log(err);
-  }else {
-    res.json(results);
-  }
-})
+    var brandInp = req.params.brandname;
+    model.find({
+        brand: brandInp
+    }, function(err, results) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(results);
+        }
+    })
 });
 
 // 	List all shoes for a given size
 app.get("/api/shoes/size/:size", function(req, res) {
-var sizeInp = req.params.size;
-model.find({size:sizeInp},function (err,results) {
-  if (err) {
-    console.log(err);
-  }else {
-    res.json(results);
-  }
-})
+    var sizeInp = req.params.size;
+    model.find({
+        size: sizeInp
+    }, function(err, results) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(results);
+        }
+    })
 });
 
 
 //List all shoes for a given brand and size
-app.get("/api/shoes/brand/:brandname/size/:size", function(req,res) {
-var brandInp = req.params.brandname;
-var sizeInp = req.params.size;
-model.find({brand:brandInp,size:sizeInp},function (err,results) {
-  if (err) {
-    console.log(err);
-  }else {
-    res.json(results);
-  }
-})
+app.get("/api/shoes/brand/:brandname/size/:size", function(req, res) {
+        var brandInp = req.params.brandname;
+        var sizeInp = req.params.size;
+        model.find({
+            brand: brandInp,
+            size: sizeInp
+        }, function(err, results) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(results);
+            }
+        })
 
-}),
+    }),
 
     //Update the stock levels when a shoe is sold
-    app.post("/api/shoes/sold/:id", function(req, res) {
-var itemId =req.params.id;
+    app.post("/api/shoes/sold/:id"
+    , function(req, res) {
+        var itemId = req.params.id;
 
 
- model.findOneAndUpdate({_id:itemId},{$inc:{in_stock:-1}},{upsert:false},function (err,results) {
-   if (err) {
-     console.log(err);
-   }else {
-     res.send(results);
-   }
-})
-});
+        model.findOneAndUpdate({
+            _id: itemId
+        }, {
+            $inc: {
+                in_stock: -1
+            }
+        }, {
+            upsert: false
+        }, function(err, results) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(results);
+            }
+        })
+    });
 
 // 	Add a new new shoe to his stock.
-app.post("/api/shoes", function(req,res) {
+app.post("/api/shoes", function(req, res) {
 
     var newShoe = new model(req.body);
 
-    newShoe.save({},function(err, results) {
+    newShoe.save({}, function(err, results) {
         if (err) {
             console.log(err);
         } else {

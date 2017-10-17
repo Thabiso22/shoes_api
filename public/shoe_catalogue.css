@@ -1,0 +1,32 @@
+
+table,tr,th, td {
+  border-collapse: collapse;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: grey;
+}
+#button {
+  margin-top: 25px;
+}
+#filter {
+  margin-bottom: 40px;
+}
+#textboxes {
+  background-color: white;
+  width: 351px;
+  padding-bottom: 20px;
+}
+h1 {
+  background-color: white;
+  border-style: ridge;
+}
+ #styleDrop{
+  background-color: white;
+  width: 351px;
+}
+.sizeOut {
+  margin-bottom: 30px;
+}
+li {
+  list-style: none;
+}
