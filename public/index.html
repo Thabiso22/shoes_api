@@ -13,118 +13,64 @@
 </head>
 
 <body background="pro1.jpg">
-    <!-- <center><img src="feit2.jpg" alt="shoe" height="300px"></center> -->
-    <br><br><br><br>
-    <!--this div is for styling my dropDowns background-color  -->
-    <div id="styleDrop">
+    <!-- Create dropdowns for filtering -->
+    <center>
+        <h3>Filter By :</h3>
+        <input type="text" placeholder="Price..." id="filterPrice">
+        <input type="text" placeholder="Brand..." id="filterBrand">
+        <input type="text" placeholder="Size..." id="filterSize">
+    </center><br><br>
 
+    <center><button id="filterButt">Filter</button></center><br><br><br><br><br><br>
 
-            <center><select id="filter3" id="colordrop" class="colourVal" name="Colour">
-        <option value="" disabled selected>colours</option>
-        {{#each colour}}
-        <option value="{{colour}}">{{colour}}</option>
-        {{/each}}
-        </select>
-            </center>
-
-
-
-        <div class="colourOut">
-        </div>
-        <br><br><br><br>
-
-        <div id="viewColor"></div>
-
-
-
-            <center>
-                <select id="filter2" id="sizedrop" class="sizeVal" name="size">
-      <option value="" disabled selected>sizes</option>
-    {{#each sizes}}
-    <option value="{{size}}">{{size}}</option>
-    {{/each}}
-  </select>
-
-            </center>
-
-
-        <center>
-            <!--this div is for sizeStyle  -->
-            <div class="sizeOut">
-            </div>
-            <!--sizeStyle is closed here  -->
-
-        </center>
-
-        <center><button id="CheckButton">Check Selected</button></center>
-
-
-
-
-
-            <center>
-                <select id="filter4" class="brandVal" name="Brand">
-      <option value="" disabled selected>Brands</option>
-    {{#each Brand}}
-    <option value="{{brand}}">{{brand}}</option>
-    {{/each}}
-  </select>
-            </center>
-
-
-        <center>
-
-            <div class="brandOut">
-            </div>
-
-        </center>
-        <!--this div closes styleDrop  -->
+    <center>
+        <h3>Add Stock</h3>
+    <input type="text" placeholder="Add Price" id="boxPrice">
+    <input type="text" placeholder="Add Stock" id="boxStock">
+    <input type="text" placeholder="Add Colour" id="boxColour">
+    <input type="text" placeholder="Add Size" id="boxSize">
+    <center><input type="text" placeholder="Add Brand" id="boxBrand"></center>
+    <center><input type="button" value="Add Stock" id="addButt"></center>
     </div>
-    <div id="textboxes">
-        <center>
-            <h3>ADD STOCK</h3></center>
-            <input type="text" placeholder="Add Price" id="boxPrice">
-            <input type="text" placeholder="Add Stock" id="boxStock">
-        <input type="text" placeholder="Add Colour" id="boxColour">
-        <input type="text" placeholder="Add Size" id="boxSize">
-        <center><input type="text" placeholder="Add Brand" id="boxBrand"></center>
-        <center><input type="button" value="Add Stock" id="addButt"></center>
-    </div>
-
+  </center>
 
     <center><input type="button" id="button" value="Search"></center>
+    <center>
 
 
-        <center>
-            <table>
-                <tr>
-                    <th>Brand</th>
-                    <th>Colours</th>
-                    <th>Prices</th>
-                    <th>in_stock</th>
-                    <th>size</th>
-                </tr>
+        <table>
+            <tr>
+                <th>Brand</th>
+                <th>Colours</th>
+                <th>Prices</th>
+                <th>in_stock</th>
+                <th>size</th>
+            </tr>
+            <script id="templateTable" type="text/x-handlebars-template">
+            {{#each shoes}}
+              <tr>
+                <td>{{brand}}</td>
+                <td>{{colour}}</td>
+                <td>{{price}}</td>
+                <td>{{in_stock}}</td>
+                <td>{{size}}</td>
+              </tr>
+              {{/each}}
+            </script>
+            <tbody id="tbody">
 
-                <tr>
-                    <td id="data"></td>
-                    <td id="colour"></td>
-                    <td id="price"></td>
-                    <td id="in_stock"></td>
-                    <td id="size"></td>
-                </tr>
+            </tbody>
 
-            </table>
-        </center>
+        </table>
 
+</center>
 
     <div id="display">
     </div>
-<!--Jquery Test   -->
-<ul >
 
-</ul>
-<!-- Jquery Test -->
 </body>
 <script src="main.js" charset="utf-8"></script>
-<!-- <script src="jquery-3.2.1.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+
 </html>

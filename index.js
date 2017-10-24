@@ -37,6 +37,7 @@ app.get("/api/shoes", function(req, res) {
 //List all shoes for a given brand
 app.get("/api/shoes/brand/:brandname", function(req, res) {
     var brandInp = req.params.brandname;
+    console.log(brandInp);
     model.find({
         brand: brandInp
     }, function(err, results) {
@@ -44,6 +45,7 @@ app.get("/api/shoes/brand/:brandname", function(req, res) {
             console.log(err);
         } else {
             res.json(results);
+
         }
     })
 });
