@@ -16,7 +16,7 @@ var UserSchema = mongoose.Schema({
       size :Number,
       brand:String,
       price:Number,
-      in_stock:Number
+      in_stock:{type:Number,min : 1,default:0}
    });
 
 

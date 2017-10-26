@@ -39,23 +39,27 @@
     <center>
 
 
-        <table>
+        <table background="pro1.jpg">
             <tr>
                 <th>Brand</th>
                 <th>Colours</th>
                 <th>Prices</th>
                 <th>in_stock</th>
                 <th>size</th>
+                <th>Buy Shoe</th>
             </tr>
             <script id="templateTable" type="text/x-handlebars-template">
             {{#each shoes}}
-              <tr>
-                <td>{{brand}}</td>
-                <td>{{colour}}</td>
-                <td>{{price}}</td>
-                <td>{{in_stock}}</td>
-                <td>{{size}}</td>
-              </tr>
+            {{#if in_stock}}
+                <tr>
+                  <td>{{brand}}</td>
+                  <td>{{colour}}</td>
+                  <td>{{price}}</td>
+                  <td>{{in_stock}}</td>
+                  <td>{{size}}</td>
+                  <td><input type="button" id="buyButton" value="Buy" onclick="buy('{{_id}}')"></td>
+                </tr>
+            {{/if}}
               {{/each}}
             </script>
             <tbody id="tbody">

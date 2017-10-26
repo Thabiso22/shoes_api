@@ -2,8 +2,11 @@
 table,tr,th, td {
   border-collapse: collapse;
   padding: 10px;
-  border: 1px solid black;
-  background-color: grey;
+  border: 1px solid grey;
+  width:900px;
+  font-style: italic;
+
+  /*background-color: grey;*/
 }
 #button {
   margin-top: 25px;
