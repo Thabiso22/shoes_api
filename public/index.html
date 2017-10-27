@@ -13,31 +13,30 @@
 </head>
 
 <body background="pro1.jpg">
-<center><img src="feit2.jpg" alt="shoe" height="300px"></center>
-    <!-- Create dropdowns for filtering -->
+
+    <center><img src="feit2.jpg" alt="shoe" height="200px"></center>
+
     <center>
         <h3>Filter By :</h3>
-        <input type="text" placeholder="Colour..." id="filterColour">
         <input type="text" placeholder="Brand..." id="filterBrand">
         <input type="text" placeholder="Size..." id="filterSize">
     </center><br><br>
 
-    <center><button id="filterButt">Filter</button></center><br><br><br>
+    <center><button id="filterButt">Filter</button></center><br>
 
     <center>
         <h3>Add Stock</h3>
-    <input type="text" placeholder="Add Price" id="boxPrice">
-    <input type="text" placeholder="Add Stock" id="boxStock">
-    <input type="text" placeholder="Add Colour" id="boxColour">
-    <input type="text" placeholder="Add Size" id="boxSize">
-    <center><input type="text" placeholder="Add Brand" id="boxBrand"></center>
-    <center><input type="button" value="Add Stock" id="addButt"></center>
-    </div>
-  </center>
+        <input type="text" placeholder="Add Price" id="boxPrice">
+        <input type="text" placeholder="Add Stock" id="boxStock">
+        <input type="text" placeholder="Add Colour" id="boxColour">
+        <input type="text" placeholder="Add Size" id="boxSize">
+        <center><input type="text" placeholder="Add Brand" id="boxBrand"></center>
+        <center><input type="button" value="Add Stock" id="addButt"></center>
+        </div>
+    </center>
 
     <center><input type="button" id="button" value="Search"></center>
     <center>
-
 
         <table background="pro1.jpg">
             <tr>
@@ -49,18 +48,16 @@
                 <th>Buy Shoe</th>
             </tr>
             <script id="templateTable" type="text/x-handlebars-template">
-            {{#each shoes}}
-            {{#if in_stock}}
+                {{#each shoes}} {{#if in_stock}}
                 <tr>
-                  <td>{{brand}}</td>
-                  <td>{{colour}}</td>
-                  <td>{{price}}</td>
-                  <td>{{in_stock}}</td>
-                  <td>{{size}}</td>
-                  <td><input type="button" id="buyButton" value="Buy" onclick="buy('{{_id}}')"></td>
+                    <td>{{brand}}</td>
+                    <td>{{colour}}</td>
+                    <td>{{price}}</td>
+                    <td>{{in_stock}}</td>
+                    <td>{{size}}</td>
+                    <td><input type="button" id="buyButton" value="Buy" onclick="buy('{{_id}}')"></td>
                 </tr>
-            {{/if}}
-              {{/each}}
+                {{/if}} {{/each}}
             </script>
             <tbody id="tbody">
 
@@ -68,11 +65,9 @@
 
         </table>
 
-</center>
-
+    </center>
     <div id="display">
     </div>
-
 </body>
 <script src="main.js" charset="utf-8"></script>
 

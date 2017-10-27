@@ -16,7 +16,6 @@ var tableComp = Handlebars.compile(document.querySelector("#templateTable").inne
 
 function display() {
 
-
     $.ajax({
         type: "get",
         url: "/api/shoes",
@@ -29,6 +28,7 @@ function display() {
     });
 }
 display();
+//Add Button
 $("#addButt").on("click", function() {
     var addStock = {
         colour: $boxColour.val(),
@@ -43,23 +43,22 @@ $("#addButt").on("click", function() {
         url: "/api/shoes",
         data: addStock,
         success: function(newShoes) {
-
-            $data.append("<li>" + newShoes.brand + "</li>");
-            $colour.append("<li>" + newShoes.colour + "</li>");
-            $size.append("<li>" + newShoes.size + "</li>");
-            $price.append("<li>" + newShoes.price + "</li>");
-            $in_stock.append("<li>" + newShoes.in_stock + "</li>");
+            display();
         }
     })
-
+    ////////////////////////
+     boxColour.value="";
+     boxSize.value="";
+     boxBrand.value="";
+     boxPrice.value="";
+     boxStock.value="";
+    ///////////////////
 });
-
-
+//End of Add Button
+//AddEventListener Button
+//Filter by Brand
 $("#filterButt").on("click", function() {
-
-
     brand = $filterBran.val();
-
     $.ajax({
         type: "get",
         url: "/api/shoes/brand/" + brand,
@@ -69,46 +68,32 @@ $("#filterButt").on("click", function() {
             document.querySelector("#tbody").innerHTML = tableComp({
                 shoes: search
             });
-
-
-
         }
     })
-    //////////////////////////////////////////////////
+    //End of Filter by Brand
+    //Filter By Size
     size = $filterSize.val();
-
     $.ajax({
         type: "get",
         url: "/api/shoes/size/" + size,
         // data: brand,
         success: function(searchSize) {
-
             document.querySelector("#tbody").innerHTML = tableComp({
                 shoes: searchSize
             });
-
-
-
         }
     })
-
-
 });
-
-//////////////////Buy Button/////////////////////
-
+//End of Filter by Size
+//End of EventListener
+//Buy Button
 function buy(id) {
     console.log(id);
     $.ajax({
         type: "post",
         url: "/api/shoes/sold/" + id,
-
         success: function(shoeId) {
             display();
-            console.log(shoeId);
-
-
         }
     });
 }
-/////////////////////////////////////////////////
