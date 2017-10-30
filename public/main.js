@@ -11,7 +11,7 @@ var $boxStock = $("#boxStock");
 var $filterSize = $("#filterSize");
 var $filterBran = $("#filterBrand");
 var $buyButton = $("#buyButton");
-
+var $myStock = $("#myStock");
 var tableComp = Handlebars.compile(document.querySelector("#templateTable").innerHTML);
 
 function display() {
@@ -88,7 +88,7 @@ $("#filterButt").on("click", function() {
 //End of EventListener
 //Buy Button
 function buy(id) {
-    console.log(id);
+
     $.ajax({
         type: "post",
         url: "/api/shoes/sold/" + id,
@@ -97,3 +97,16 @@ function buy(id) {
         }
     });
 }
+//////////////////////xxxxxxxxxxxx//////////////////////
+$("#myStock").on("click", function() {
+  display();
+});
+
+//////////////////////
+// $.ajax({
+//     type: "post",
+//     url: "/api/shoes/brand/:brandname/size/"+size,
+//     success: function(shoeId) {
+//         display();
+//     }
+// });

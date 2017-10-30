@@ -119,8 +119,6 @@ app.post("/api/shoes", function(req, res) {
         }
     })
 
-
-
 });
 
 // });
