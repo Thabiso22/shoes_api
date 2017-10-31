@@ -103,10 +103,10 @@ $("#myStock").on("click", function() {
 });
 
 //////////////////////
-// $.ajax({
-//     type: "post",
-//     url: "/api/shoes/brand/:brandname/size/"+size,
-//     success: function(shoeId) {
-//         display();
-//     }
-// });
+$.ajax({
+    type: "post",
+    url: "/api/shoes/brand/:brandname/size/"+size,
+    success: function(shoeId) {
+        display();
+    }
+});
